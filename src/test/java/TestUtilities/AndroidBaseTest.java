@@ -5,6 +5,7 @@ import com.sun.tools.javac.comp.Todo;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 import java.io.File;
@@ -19,7 +20,7 @@ public class AndroidBaseTest extends AppiumUtilities {
 
     //TODO add the first visible screen POM as a varaible
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void ConfigureAppium() throws IOException {
         Properties properties = new Properties();
         FileInputStream fileInputStream = new FileInputStream("Resources/AndroidData.properties");
@@ -39,5 +40,11 @@ public class AndroidBaseTest extends AppiumUtilities {
 
         AndroidDriver driver = new AndroidDriver(options);
         //TODO add the first visible screen POM for the driver to open it
+    }
+
+    @AfterClass(alwaysRun = true)
+    public void tearDown(){
+        driver.quit();
+        service.stop();
     }
 }
