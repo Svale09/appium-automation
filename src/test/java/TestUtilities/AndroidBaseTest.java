@@ -20,7 +20,7 @@ public class AndroidBaseTest extends AppiumUtilities {
     @BeforeClass(alwaysRun = true)
     public void ConfigureAppium() throws IOException {
         Properties properties = new Properties();
-        FileInputStream fileInputStream = new FileInputStream("Resources/AndroidData.properties");
+        FileInputStream fileInputStream = new FileInputStream("/Users/ivansvalina/IdeaProjects/ZavrsniRad/src/main/java/Resources/AndroidData.properties");
 
         properties.load(fileInputStream);
 
@@ -33,9 +33,10 @@ public class AndroidBaseTest extends AppiumUtilities {
         options.setDeviceName(properties.getProperty("deviceName"))
                 .setPlatformVersion(properties.getProperty("platformVersion"))
                 .setAutomationName("UIAutomator2")
-                .setApp("/Users/ivansvalina/IdeaProjects/ZavrsniRad/src/test/java/Resources/Phoenix_Android.apk");
+                .setApp("/Users/ivansvalina/IdeaProjects/ZavrsniRad/src/test/java/Resources/Phoenix_Android.apk")
+                .autoGrantPermissions();
 
-        AndroidDriver driver = new AndroidDriver(service.getUrl(), options);
+        driver = new AndroidDriver(service.getUrl(), options);
         //TODO add the first visible screen POM for the driver to open it
     }
 
