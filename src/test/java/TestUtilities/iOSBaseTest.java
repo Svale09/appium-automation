@@ -1,27 +1,27 @@
 package TestUtilities;
 
 import Utilities.AppiumUtilities;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.options.UiAutomator2Options;
+import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.ios.options.XCUITestOptions;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Properties;
 
-public class AndroidBaseTest extends AppiumUtilities {
-    AppiumDriverLocalService service;
-    AndroidDriver driver;
+public class iOSBaseTest extends AppiumUtilities {
+    public AppiumDriverLocalService service;
+    public IOSDriver driver;
 
     //TODO add the first visible screen POM as a varaible
 
     @BeforeClass(alwaysRun = true)
     public void ConfigureAppium() throws IOException {
         Properties properties = new Properties();
-        FileInputStream fileInputStream = new FileInputStream("Resources/AndroidData.properties");
-
+        FileInputStream fileInputStream = new FileInputStream("/Users/ivansvalina/IdeaProjects/ZavrsniRad/src/main/java/Resources/iOSData.properties");
         properties.load(fileInputStream);
 
         service = startAppiumService(
@@ -29,14 +29,14 @@ public class AndroidBaseTest extends AppiumUtilities {
                 Integer.parseInt(properties.getProperty("port"))
         );
 
-        UiAutomator2Options options = new UiAutomator2Options();
+        XCUITestOptions options = new XCUITestOptions();
         options.setDeviceName(properties.getProperty("deviceName"))
                 .setPlatformVersion(properties.getProperty("platformVersion"))
                 .setAutomationName("UIAutomator2")
-                .setApp("/Users/ivansvalina/IdeaProjects/ZavrsniRad/src/test/java/Resources/Phoenix_Android.apk");
+                .setApp("/Users/ivansvalina/IdeaProjects/ZavrsniRad/src/test/java/Resources/Phoenix_iOS.ipa")
+                .setWdaLaunchTimeout(Duration.ofSeconds(5));
 
-        AndroidDriver driver = new AndroidDriver(service.getUrl(), options);
-        //TODO add the first visible screen POM for the driver to open it
+        driver = new IOSDriver(service.getUrl(), options);
     }
 
     @AfterClass(alwaysRun = true)
