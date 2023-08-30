@@ -7,12 +7,14 @@ import org.testng.annotations.Test;
 
 public class LogInTests extends iOSBaseTest {
     @Test
-    public void LogInWithEmail(){
+    public void LogInWithEmail() throws InterruptedException {
+        onboardingPage.allowNotifications();
         HomePage homePage = onboardingPage.tapContinue();
 
         LogInPage logInPage = homePage.tapLogInButton();
 
         logInPage.enterCredentials("svaleqa+zr@gmail.com","Test123!");
         logInPage.logIn();
+        Thread.sleep(2000);
     }
 }

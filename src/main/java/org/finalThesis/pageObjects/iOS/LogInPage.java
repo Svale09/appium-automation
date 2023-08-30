@@ -18,7 +18,7 @@ public class LogInPage extends AppiumUtilities {
     private WebElement emailInputField;
     @iOSXCUITFindBy(className = "XCUIElementTypeSecureTextField")
     private WebElement passwordInputField;
-    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton['label == Continue'`]")
+    @iOSXCUITFindBy(iOSNsPredicate = "label == 'Continue' AND type == 'XCUIElementTypeButton'")
     private WebElement continueButton;
 
 

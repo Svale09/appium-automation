@@ -17,9 +17,14 @@ public class OnboardingPage extends AppiumUtilities {
 
     @iOSXCUITFindBy(className = "XCUIElementTypeButton")
     private WebElement continueButton;
+    @iOSXCUITFindBy(accessibility = "Allow")
+    private WebElement allowNotificationPopUp;
 
     public HomePage tapContinue(){
         continueButton.click();
         return new HomePage(driver);
+    }
+    public void allowNotifications(){
+        allowNotificationPopUp.click();
     }
 }
