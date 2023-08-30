@@ -27,8 +27,9 @@ public class LogInPage extends AppiumUtilities {
         emailInputField.sendKeys(email);
         passwordInputField.sendKeys(password);
     }
-    public void logIn(){
+    public EventsPage logIn(){
         continueButton.click();
+        return new EventsPage(driver);
     }
 
 }
