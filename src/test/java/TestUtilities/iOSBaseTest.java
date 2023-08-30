@@ -4,6 +4,7 @@ import Utilities.AppiumUtilities;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.options.XCUITestOptions;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
+import org.finalThesis.pageObjects.iOS.OnboardingPage;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -15,8 +16,7 @@ import java.util.Properties;
 public class iOSBaseTest extends AppiumUtilities {
     public AppiumDriverLocalService service;
     public IOSDriver driver;
-
-    //TODO add the first visible screen POM as a varaible
+    public OnboardingPage onboardingPage;
 
     @BeforeClass(alwaysRun = true)
     public void ConfigureAppium() throws IOException {
@@ -37,6 +37,7 @@ public class iOSBaseTest extends AppiumUtilities {
                 .setWdaLaunchTimeout(Duration.ofSeconds(5));
 
         driver = new IOSDriver(service.getUrl(), options);
+        onboardingPage = new OnboardingPage(driver);
     }
 
     @AfterClass(alwaysRun = true)
