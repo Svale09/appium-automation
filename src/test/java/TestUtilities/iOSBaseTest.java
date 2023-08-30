@@ -33,7 +33,7 @@ public class iOSBaseTest extends AppiumUtilities {
         options.setDeviceName(properties.getProperty("deviceName"))
                 .setPlatformVersion(properties.getProperty("platformVersion"))
                 .setAutomationName("XCUITest")
-                .setApp("/Users/ivansvalina/IdeaProjects/ZavrsniRad/src/test/java/Resources/Phoenix_iOS.ipa")
+                .setApp("/Users/ivansvalina/Library/Developer/Xcode/DerivedData/iosApp-beddrelcoxzocufownczwlyqkwbd/Build/Products/Debug-iphonesimulator/ThePhoenixQA.app")
                 .setWdaLaunchTimeout(Duration.ofSeconds(5));
 
         driver = new IOSDriver(service.getUrl(), options);
