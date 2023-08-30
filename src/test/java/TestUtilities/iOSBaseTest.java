@@ -32,7 +32,7 @@ public class iOSBaseTest extends AppiumUtilities {
         XCUITestOptions options = new XCUITestOptions();
         options.setDeviceName(properties.getProperty("deviceName"))
                 .setPlatformVersion(properties.getProperty("platformVersion"))
-                .setAutomationName("UIAutomator2")
+                .setAutomationName("XCUITest")
                 .setApp("/Users/ivansvalina/IdeaProjects/ZavrsniRad/src/test/java/Resources/Phoenix_iOS.ipa")
                 .setWdaLaunchTimeout(Duration.ofSeconds(5));
 
