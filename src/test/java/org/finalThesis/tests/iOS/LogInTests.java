@@ -2,14 +2,12 @@ package org.finalThesis.tests.iOS;
 
 import TestUtilities.iOSBaseTest;
 import io.appium.java_client.AppiumBy;
-import org.finalThesis.pageObjects.iOS.EventsPage;
-import org.finalThesis.pageObjects.iOS.HomePage;
-import org.finalThesis.pageObjects.iOS.LogInPage;
+import org.finalThesis.pageObjects.iOS.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class LogInTests extends iOSBaseTest {
-    @Test
+    @Test(priority = 1)
     public void LogInWithEmail() throws InterruptedException {
         onboardingPage.allowNotifications();
         HomePage homePage = onboardingPage.tapContinue();
@@ -19,8 +17,19 @@ public class LogInTests extends iOSBaseTest {
         logInPage.enterCredentials("svaleqa+zr@gmail.com","Test123!");
         EventsPage eventsPage = logInPage.logIn();
 
-        Assert.assertTrue(
-                driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeStaticText[`label == 'Events'`][1]")).isDisplayed()
-        );
+        Assert.assertTrue(eventsPage.isTitleDisplayed());
+    }
+    @Test(priority = 2)
+    public void LogOut(){
+        EventsPage eventsPage = new EventsPage(driver);
+
+        ProfilePage profilePage = eventsPage.tapProfilePicture();
+
+        SettingsPage settingsPage = profilePage.tapSettingsButton();
+        settingsPage.scrollToLogInButton();
+
+        HomePage homePage = settingsPage.tapLogOutButton();
+
+        Assert.assertTrue(homePage.isTitleDisplayed());
     }
 }

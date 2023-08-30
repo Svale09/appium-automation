@@ -1,37 +1,33 @@
-package org.finalThesis.pageObjects.iOS;
+package org.finalThesis.pageObjects.Android;
 
 import Utilities.AppiumUtilities;
-import Utilities.iOSActions;
-import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class LogInPage extends iOSActions {
-    IOSDriver driver;
-    public LogInPage(IOSDriver driver){
-        super(driver);
+public class LogInPage extends AppiumUtilities {
+    AndroidDriver driver;
+    public LogInPage(AndroidDriver driver){
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTextField[`value == 'Enter email'`]")
+    @AndroidFindBy()
     private WebElement emailInputField;
-    @iOSXCUITFindBy(className = "XCUIElementTypeSecureTextField")
+    @AndroidFindBy()
     private WebElement passwordInputField;
-    @iOSXCUITFindBy(iOSNsPredicate = "label == 'Continue' AND type == 'XCUIElementTypeButton'")
+    @AndroidFindBy()
     private WebElement continueButton;
-
-
 
     public void enterCredentials(String email, String password){
         emailInputField.sendKeys(email);
         passwordInputField.sendKeys(password);
     }
-    public EventsPage logIn(){
+
+    public EventsPage tapContinueButton(){
         continueButton.click();
         return new EventsPage(driver);
     }
-
 }

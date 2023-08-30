@@ -4,6 +4,7 @@ import Utilities.AppiumUtilities;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
+import org.finalThesis.pageObjects.Android.OnboardingPage;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -12,10 +13,9 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class AndroidBaseTest extends AppiumUtilities {
-    AppiumDriverLocalService service;
-    AndroidDriver driver;
-
-    //TODO add the first visible screen POM as a varaible
+    private AppiumDriverLocalService service;
+    public AndroidDriver driver;
+    public OnboardingPage onboardingPage;
 
     @BeforeClass(alwaysRun = true)
     public void ConfigureAppium() throws IOException {
@@ -37,7 +37,7 @@ public class AndroidBaseTest extends AppiumUtilities {
                 .autoGrantPermissions();
 
         driver = new AndroidDriver(service.getUrl(), options);
-        //TODO add the first visible screen POM for the driver to open it
+        onboardingPage = new OnboardingPage(driver);
     }
 
     @AfterClass(alwaysRun = true)

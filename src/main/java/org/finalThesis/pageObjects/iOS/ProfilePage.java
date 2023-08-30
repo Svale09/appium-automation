@@ -6,27 +6,24 @@ import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class OnboardingPage extends iOSActions {
+public class ProfilePage extends iOSActions {
     IOSDriver driver;
-
-    public OnboardingPage(IOSDriver driver){
+    public ProfilePage(IOSDriver driver){
         super(driver);
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    @iOSXCUITFindBy(className = "XCUIElementTypeButton")
-    private WebElement continueButton;
-    @iOSXCUITFindBy(accessibility = "Allow")
-    private WebElement allowNotificationPopUp;
+    @iOSXCUITFindBy(accessibility = "ic settings")
+    private WebElement settingsButton;
+    @iOSXCUITFindBy(accessibility = "Test Update")
+    private WebElement profileName;
 
-    public HomePage tapContinue(){
-        continueButton.click();
-        return new HomePage(driver);
-    }
-    public void allowNotifications(){
-        allowNotificationPopUp.click();
+    public SettingsPage tapSettingsButton(){
+        settingsButton.click();
+        return new SettingsPage(driver);
     }
 }

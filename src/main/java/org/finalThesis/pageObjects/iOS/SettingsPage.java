@@ -8,25 +8,24 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class OnboardingPage extends iOSActions {
+public class SettingsPage extends iOSActions {
     IOSDriver driver;
 
-    public OnboardingPage(IOSDriver driver){
+    public SettingsPage(IOSDriver driver){
         super(driver);
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    @iOSXCUITFindBy(className = "XCUIElementTypeButton")
-    private WebElement continueButton;
-    @iOSXCUITFindBy(accessibility = "Allow")
-    private WebElement allowNotificationPopUp;
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`label == 'Log out'`]")
+    private WebElement logOutButton;
 
-    public HomePage tapContinue(){
-        continueButton.click();
+    public HomePage tapLogOutButton(){
+        logOutButton.click();
         return new HomePage(driver);
     }
-    public void allowNotifications(){
-        allowNotificationPopUp.click();
+
+    public void scrollToLogInButton(){
+        ScrollToElement(logOutButton);
     }
 }

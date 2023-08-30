@@ -14,7 +14,7 @@ import java.time.Duration;
 import java.util.Properties;
 
 public class iOSBaseTest extends AppiumUtilities {
-    public AppiumDriverLocalService service;
+    private AppiumDriverLocalService service;
     public IOSDriver driver;
     public OnboardingPage onboardingPage;
 
