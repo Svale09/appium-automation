@@ -25,6 +25,8 @@ public class EventsPage extends iOSActions {
     private WebElement profilePicture;
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView[4]/XCUIElementTypeCell[1]")
     private WebElement eventCard;
+    @iOSXCUITFindBy(accessibility = "Groups")
+    private WebElement groupsIcon;
 
     public ProfilePage tapProfilePicture(){
         profilePicture.click();
@@ -37,5 +39,10 @@ public class EventsPage extends iOSActions {
     public EventDetailsPage tapEventCard(){
         eventCard.click();
         return new EventDetailsPage(driver);
+    }
+
+    public GroupsPage NavigateToGroupsSection(){
+        groupsIcon.click();
+        return new GroupsPage(driver);
     }
 }
