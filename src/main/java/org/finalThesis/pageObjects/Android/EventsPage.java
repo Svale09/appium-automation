@@ -26,6 +26,8 @@ public class EventsPage extends AndroidActions {
     private List<WebElement> eventCards;
     @AndroidFindBy(id = "the.phoenix.android.qa:id/in_person_header")
     private WebElement inPersonTitle;
+    @AndroidFindBy(accessibility = "Groups")
+    private WebElement groupsIcon;
 
     public boolean isTitleDisplayed(){
         return eventsTitle.isDisplayed();
@@ -38,5 +40,10 @@ public class EventsPage extends AndroidActions {
     public EventDetailsPage tapEventCard(){
         eventCards.get(0).click();
         return new EventDetailsPage(driver);
+    }
+
+    public GroupsPage NavigateToGroupsSection(){
+        groupsIcon.click();
+        return new GroupsPage(driver);
     }
 }
