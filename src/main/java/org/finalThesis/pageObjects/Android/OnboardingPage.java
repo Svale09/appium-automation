@@ -1,7 +1,6 @@
 package org.finalThesis.pageObjects.Android;
 
 import Utilities.AndroidActions;
-import Utilities.AppiumUtilities;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;

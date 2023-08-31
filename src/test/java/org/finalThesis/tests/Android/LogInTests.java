@@ -1,7 +1,6 @@
 package org.finalThesis.tests.Android;
 
 import TestUtilities.AndroidBaseTest;
-import io.appium.java_client.AppiumBy;
 import org.finalThesis.pageObjects.Android.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
