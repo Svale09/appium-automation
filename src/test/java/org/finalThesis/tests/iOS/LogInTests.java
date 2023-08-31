@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 public class LogInTests extends iOSBaseTest {
     @Test(priority = 1)
-    public void LogInWithEmail() throws InterruptedException {
+    public void LogInWithEmail(){
         onboardingPage.allowNotifications();
         HomePage homePage = onboardingPage.tapContinue();
 

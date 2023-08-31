@@ -30,4 +30,7 @@ public class AppiumUtilities {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(id)));
     }
+    public String GetText(WebElement element){
+        return element.getText();
+    }
 }

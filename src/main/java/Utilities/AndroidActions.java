@@ -30,8 +30,4 @@ public class AndroidActions extends AppiumUtilities{
             ));
         }
     //}
-
-    public String GetText(WebElement element){
-        return element.getText();
-    }
 }
