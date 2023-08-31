@@ -21,9 +21,15 @@ public class HomePage extends AndroidActions {
     private WebElement logInButton;
     @AndroidFindBy(id = "the.phoenix.android.qa:id/continue_with_email_bttn")
     private WebElement signUpButton;
+    @AndroidFindBy(id = "the.phoenix.android.qa:id/title")
+    private WebElement title;
 
     public LogInPage tapLogInButton(){
         logInButton.click();
         return new LogInPage(driver);
+    }
+
+    public boolean isTitleVisible(){
+        return title.isDisplayed();
     }
 }

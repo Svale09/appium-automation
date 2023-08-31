@@ -1,7 +1,6 @@
 package org.finalThesis.pageObjects.Android;
 
 import Utilities.AndroidActions;
-import com.sun.org.apache.xpath.internal.operations.And;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -26,6 +25,6 @@ public class SettingsPage extends AndroidActions {
     }
 
     public void scrollToLogOutButton(){
-
+        scrollToElement("Log out");
     }
 }

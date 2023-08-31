@@ -10,10 +10,10 @@ public class AndroidActions extends AppiumUtilities{
         this.driver = driver;
     }
 
-    public void scrollToElement(String attribute, String value){
+    public void scrollToElement(String value){
         driver.findElement(
                 AppiumBy.androidUIAutomator((
-                        String.format("new UiScrollable(new UiSelector()).scrollIntoView(%s('%s'));",attribute, value)
-                ))); //Ui automator method of scrolling
+                        "new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + value + "\"));")
+                )); //Ui automator method of scrolling
     }
 }

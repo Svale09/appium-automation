@@ -7,7 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class LogInTests extends AndroidBaseTest {
-    @Test
+    @Test(priority = 1)
     public void LogIn(){
         HomePage homePage = onboardingPage.tapContinueButton();
 
@@ -19,12 +19,16 @@ public class LogInTests extends AndroidBaseTest {
         Assert.assertTrue(eventsPage.isTitleDisplayed());
     }
 
+    @Test(priority = 2)
     public void LogOut(){
         EventsPage eventsPage = new EventsPage(driver);
         ProfilePage profilePage = eventsPage.tapProfilePicture();
 
         SettingsPage settingsPage = profilePage.tapSettingsButton();
 
-        settingsPage.
+        settingsPage.scrollToLogOutButton();
+        HomePage homePage = settingsPage.tapLogOutButton();
+
+        Assert.assertTrue(homePage.isTitleVisible());
     }
 }
