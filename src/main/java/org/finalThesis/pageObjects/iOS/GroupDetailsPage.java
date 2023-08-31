@@ -24,13 +24,8 @@ public class GroupDetailsPage extends iOSActions {
 
     @iOSXCUITFindBy(accessibility = "What's on your mind?")
     private WebElement postInputField;
-    /*
-    @AndroidFindBy(xpath = "//*[@resource-id='the.phoenix.android.qa:id/post_view']//*[@resource-id='the.phoenix.android.qa:id/date_role_badge']")
-    private List<WebElement> postTimeStamps;
-    @AndroidFindBy(xpath = "//*[@resource-id='the.phoenix.android.qa:id/post_view']")
-    private List<WebElement> posts;
-    @AndroidFindBy(xpath = "//*[@resource-id='the.phoenix.android.qa:id/main_scroll_view']")
-    private List<WebElement> mainContainers;*/
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`label == \"Right now\"`]")
+    private WebElement latestPostTimestamp;
 
     public int GetMemberCount() {
         String members = GetText(memberCounter);
@@ -46,16 +41,12 @@ public class GroupDetailsPage extends iOSActions {
         return postInputField.isDisplayed();
     }
 
-    /*public CreatePostPage TapPostInputField() {
+    public CreatePostPage TapPostInputField() {
         postInputField.click();
         return new CreatePostPage(driver);
     }
 
-    public String GetLatestPostTimestamp() {
-        return postTimeStamps.get(0).getText();
+    public boolean isPostVisible(){
+        return latestPostTimestamp.isDisplayed();
     }
-
-    public void ScrollToPosts(int amount) {
-        Swipe(amount, mainContainers.get(0), "up");
-    }*/
 }
