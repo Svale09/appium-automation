@@ -1,5 +1,6 @@
 package org.finalThesis.pageObjects.Android;
 
+import Utilities.AndroidActions;
 import Utilities.AppiumUtilities;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -7,10 +8,11 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage extends AppiumUtilities {
+public class HomePage extends AndroidActions {
     AndroidDriver driver;
 
     public HomePage(AndroidDriver driver){
+        super(driver);
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }

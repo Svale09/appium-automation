@@ -2,9 +2,7 @@ package org.finalThesis.tests.Android;
 
 import TestUtilities.AndroidBaseTest;
 import io.appium.java_client.AppiumBy;
-import org.finalThesis.pageObjects.Android.EventsPage;
-import org.finalThesis.pageObjects.Android.HomePage;
-import org.finalThesis.pageObjects.Android.LogInPage;
+import org.finalThesis.pageObjects.Android.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -19,5 +17,14 @@ public class LogInTests extends AndroidBaseTest {
         EventsPage eventsPage = logInPage.tapContinueButton();
 
         Assert.assertTrue(eventsPage.isTitleDisplayed());
+    }
+
+    public void LogOut(){
+        EventsPage eventsPage = new EventsPage(driver);
+        ProfilePage profilePage = eventsPage.tapProfilePicture();
+
+        SettingsPage settingsPage = profilePage.tapSettingsButton();
+
+        settingsPage.
     }
 }
