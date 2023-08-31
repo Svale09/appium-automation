@@ -18,8 +18,6 @@ public class LogInTests extends AndroidBaseTest {
         logInPage.enterCredentials("svaleqa+zr@gmail.com", "Test123!");
         EventsPage eventsPage = logInPage.tapContinueButton();
 
-        Assert.assertTrue(
-                driver.findElement(AppiumBy.xpath("")).isDisplayed()
-        );
+        Assert.assertTrue(eventsPage.isTitleDisplayed());
     }
 }

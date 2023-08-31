@@ -14,7 +14,7 @@ public class OnboardingPage extends AppiumUtilities {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    @AndroidFindBy()
+    @AndroidFindBy(id = "the.phoenix.android.qa:id/continue_button")
     private WebElement continueButton;
 
     public HomePage tapContinueButton(){

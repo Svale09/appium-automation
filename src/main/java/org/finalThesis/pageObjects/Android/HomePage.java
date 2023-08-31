@@ -15,9 +15,9 @@ public class HomePage extends AppiumUtilities {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    @AndroidFindBy()
+    @AndroidFindBy(id = "the.phoenix.android.qa:id/login")
     private WebElement logInButton;
-    @AndroidFindBy()
+    @AndroidFindBy(id = "the.phoenix.android.qa:id/continue_with_email_bttn")
     private WebElement signUpButton;
 
     public LogInPage tapLogInButton(){

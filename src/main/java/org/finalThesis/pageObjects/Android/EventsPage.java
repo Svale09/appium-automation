@@ -16,6 +16,10 @@ public class EventsPage extends AppiumUtilities {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    @AndroidFindBy()
+    @AndroidFindBy(id = "the.phoenix.android.qa:id/header")
     private WebElement eventsTitle;
+
+    public boolean isTitleDisplayed(){
+        return eventsTitle.isDisplayed();
+    }
 }

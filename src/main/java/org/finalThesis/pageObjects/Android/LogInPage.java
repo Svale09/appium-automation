@@ -14,11 +14,11 @@ public class LogInPage extends AppiumUtilities {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    @AndroidFindBy()
+    @AndroidFindBy(xpath = "//android.widget.EditText[@text='Enter email']")
     private WebElement emailInputField;
-    @AndroidFindBy()
+    @AndroidFindBy(xpath = "//android.widget.EditText[@text='Enter password']")
     private WebElement passwordInputField;
-    @AndroidFindBy()
+    @AndroidFindBy(id = "the.phoenix.android.qa:id/button_background")
     private WebElement continueButton;
 
     public void enterCredentials(String email, String password){
