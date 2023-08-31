@@ -18,8 +18,14 @@ public class EventsPage extends AppiumUtilities {
 
     @AndroidFindBy(id = "the.phoenix.android.qa:id/header")
     private WebElement eventsTitle;
+    @AndroidFindBy(id = "the.phoenix.android.qa:id/profile_avatar")
+    private WebElement profilePicture;
 
     public boolean isTitleDisplayed(){
         return eventsTitle.isDisplayed();
+    }
+    public ProfilePage tapProfilePicture(){
+        profilePicture.click();
+        return new ProfilePage(driver);
     }
 }
