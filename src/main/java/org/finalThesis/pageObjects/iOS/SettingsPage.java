@@ -8,10 +8,10 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class SettingsPage extends iOSActions {
+public class SettingsPage extends iOSBasePage {
     IOSDriver driver;
 
-    public SettingsPage(IOSDriver driver){
+    public SettingsPage(IOSDriver driver) {
         super(driver);
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -20,12 +20,12 @@ public class SettingsPage extends iOSActions {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`label == 'Log out'`]")
     private WebElement logOutButton;
 
-    public HomePage tapLogOutButton(){
-        logOutButton.click();
+    public HomePage tapLogOutButton() {
+        Tap(logOutButton);
         return new HomePage(driver);
     }
 
-    public void scrollToLogInButton(){
+    public void scrollToLogInButton() {
         ScrollToElement(logOutButton);
     }
 }

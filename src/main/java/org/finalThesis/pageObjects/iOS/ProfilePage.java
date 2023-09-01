@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class ProfilePage extends iOSActions {
+public class ProfilePage extends iOSBasePage {
     IOSDriver driver;
     public ProfilePage(IOSDriver driver){
         super(driver);
@@ -23,7 +23,7 @@ public class ProfilePage extends iOSActions {
     private WebElement profileName;
 
     public SettingsPage tapSettingsButton(){
-        settingsButton.click();
+        Tap(settingsButton);
         return new SettingsPage(driver);
     }
 }

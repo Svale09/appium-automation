@@ -7,10 +7,10 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class EventDetailsPage extends iOSActions {
+public class EventDetailsPage extends iOSBasePage {
     IOSDriver driver;
 
-    public EventDetailsPage(IOSDriver driver){
+    public EventDetailsPage(IOSDriver driver) {
         super(driver);
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -21,11 +21,11 @@ public class EventDetailsPage extends iOSActions {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`label == \"Add To Calendar\"`]")
     private WebElement addToCalendarButton;
 
-    public void TapReserveSpot(){
-        reserveSpotButton.click();
+    public void TapReserveSpot() {
+        Tap(reserveSpotButton);
     }
 
-    public boolean IsAddToCalendarVisible(){
+    public boolean IsAddToCalendarVisible() {
         return addToCalendarButton.isDisplayed();
     }
 }

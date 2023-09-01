@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class GroupsPage extends iOSActions {
+public class GroupsPage extends iOSBasePage {
     IOSDriver driver;
 
     public GroupsPage(IOSDriver driver) {
@@ -22,7 +22,7 @@ public class GroupsPage extends iOSActions {
     private List<WebElement> featuredGroupCards;
 
     public GroupDetailsPage OpenGroupDetails() {
-        featuredGroupCards.get(0).click();
+        Tap(featuredGroupCards.get(0));
         return new GroupDetailsPage(driver);
     }
 }

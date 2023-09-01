@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class EventsPage extends iOSActions {
+public class EventsPage extends iOSBasePage {
     IOSDriver driver;
 
     public EventsPage(IOSDriver driver){
@@ -37,12 +37,12 @@ public class EventsPage extends iOSActions {
     }
 
     public EventDetailsPage tapEventCard(){
-        eventCard.click();
+        Tap(eventCard);
         return new EventDetailsPage(driver);
     }
 
     public GroupsPage NavigateToGroupsSection(){
-        groupsIcon.click();
+        Tap(profilePicture);
         return new GroupsPage(driver);
     }
 }

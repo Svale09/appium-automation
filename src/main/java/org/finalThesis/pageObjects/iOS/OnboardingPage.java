@@ -8,10 +8,10 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class OnboardingPage extends iOSActions {
+public class OnboardingPage extends iOSBasePage {
     IOSDriver driver;
 
-    public OnboardingPage(IOSDriver driver){
+    public OnboardingPage(IOSDriver driver) {
         super(driver);
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -22,11 +22,12 @@ public class OnboardingPage extends iOSActions {
     @iOSXCUITFindBy(accessibility = "Allow")
     private WebElement allowNotificationPopUp;
 
-    public HomePage tapContinue(){
+    public HomePage tapContinue() {
         continueButton.click();
         return new HomePage(driver);
     }
-    public void allowNotifications(){
-        allowNotificationPopUp.click();
+
+    public void allowNotifications() {
+        Tap(allowNotificationPopUp);
     }
 }

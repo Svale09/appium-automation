@@ -7,7 +7,7 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class CreatePostPage extends iOSActions {
+public class CreatePostPage extends iOSBasePage {
     IOSDriver driver;
 
     public CreatePostPage(IOSDriver driver){
@@ -25,7 +25,7 @@ public class CreatePostPage extends iOSActions {
         postTextInputField.sendKeys(text);
     }
     public GroupDetailsPage PublishPost(){
-        createPostButton.click();
+        Tap(createPostButton);
         return new GroupDetailsPage(driver);
     }
 }

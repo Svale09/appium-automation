@@ -8,7 +8,7 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage extends iOSActions {
+public class HomePage extends iOSBasePage {
     IOSDriver driver;
 
     public HomePage(IOSDriver driver){
@@ -23,8 +23,9 @@ public class HomePage extends iOSActions {
     private WebElement logInButton;
     @iOSXCUITFindBy(accessibility = "Welcome")
     private WebElement title;
+
     public LogInPage tapLogInButton(){
-        logInButton.click();
+        Tap(logInButton);
         return new LogInPage(driver);
     }
     public Boolean isTitleDisplayed(){

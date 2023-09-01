@@ -8,9 +8,10 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class LogInPage extends iOSActions {
+public class LogInPage extends iOSBasePage {
     IOSDriver driver;
-    public LogInPage(IOSDriver driver){
+
+    public LogInPage(IOSDriver driver) {
         super(driver);
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -24,13 +25,13 @@ public class LogInPage extends iOSActions {
     private WebElement continueButton;
 
 
-
-    public void enterCredentials(String email, String password){
-        emailInputField.sendKeys(email);
-        passwordInputField.sendKeys(password);
+    public void enterCredentials(String email, String password) {
+        InputText(emailInputField, email);
+        InputText(passwordInputField, password);
     }
-    public EventsPage logIn(){
-        continueButton.click();
+
+    public EventsPage logIn() {
+        Tap(continueButton);
         return new EventsPage(driver);
     }
 

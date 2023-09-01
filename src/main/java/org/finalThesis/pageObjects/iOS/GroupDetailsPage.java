@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class GroupDetailsPage extends iOSActions {
+public class GroupDetailsPage extends iOSBasePage {
     IOSDriver driver;
 
     public GroupDetailsPage(IOSDriver driver) {
@@ -27,14 +27,8 @@ public class GroupDetailsPage extends iOSActions {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`label == \"Right now\"`]")
     private WebElement latestPostTimestamp;
 
-    /*public int GetMemberCount() {
-        String members = GetText(memberCounter);
-        String[] memberCounter = members.split(" ");
-        return Integer.parseInt(memberCounter[0]);
-    }*/
-
     public void JoinGroup() {
-        joinGroupButton.click();
+        Tap(joinGroupButton);
     }
 
     public boolean IsInputFieldVisible(){
@@ -42,7 +36,7 @@ public class GroupDetailsPage extends iOSActions {
     }
 
     public CreatePostPage TapPostInputField() {
-        postInputField.click();
+        Tap(postInputField);
         return new CreatePostPage(driver);
     }
 
