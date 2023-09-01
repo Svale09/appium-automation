@@ -42,7 +42,7 @@ public class EventsPage extends iOSBasePage {
     }
 
     public GroupsPage NavigateToGroupsSection(){
-        Tap(profilePicture);
+        Tap(groupsIcon);
         return new GroupsPage(driver);
     }
 }

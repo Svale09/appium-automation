@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class JoinGroupTest extends iOSBaseTest {
-    @Test
+    @Test(groups = {"iOSReg"})
     public void JoinGroup() {
         EventsPage eventsPage = new EventsPage(driver);
 
@@ -22,7 +22,7 @@ public class JoinGroupTest extends iOSBaseTest {
         Assert.assertTrue(groupDetailsPage.IsInputFieldVisible());
     }
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void LogIn() {
         LogInTests logInTests = new LogInTests();
         logInTests.onboardingPage = new OnboardingPage(driver);

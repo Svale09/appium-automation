@@ -6,7 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class LogInTests extends iOSBaseTest {
-    @Test(priority = 1)
+    @Test(priority = 1, groups = {"iOSReg"})
     public void LogInWithEmail(){
         onboardingPage.allowNotifications();
         HomePage homePage = onboardingPage.tapContinue();
@@ -18,7 +18,7 @@ public class LogInTests extends iOSBaseTest {
 
         Assert.assertTrue(eventsPage.isTitleDisplayed());
     }
-    @Test(priority = 2)
+    @Test(priority = 2, groups = {"iOSReg"})
     public void LogOut(){
         EventsPage eventsPage = new EventsPage(driver);
 
