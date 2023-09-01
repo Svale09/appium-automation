@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class JoinGroupTest extends AndroidBaseTest {
-    @Test
+    @Test(groups = {"AndroidReg"})
     public void JoinGroup(){
         EventsPage eventsPage = new EventsPage(driver);
 
@@ -24,7 +24,7 @@ public class JoinGroupTest extends AndroidBaseTest {
         Assert.assertEquals(currentMemberCount, initialMemberCount+1);
     }
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void LogIn(){
         LogInTests logInTests = new LogInTests();
         logInTests.onboardingPage = new OnboardingPage(driver);

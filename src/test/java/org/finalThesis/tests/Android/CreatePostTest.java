@@ -7,7 +7,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class CreatePostTest extends AndroidBaseTest {
-    @Test
+    @Test(groups = {"AndroidReg"})
     public void CreatePost(){
         EventsPage eventsPage = new EventsPage(driver);
 
@@ -25,7 +25,7 @@ public class CreatePostTest extends AndroidBaseTest {
         Assert.assertEquals(groupDetailsPage.GetLatestPostTimestamp(), "moments ago");
     }
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void LogIn(){
         LogInTests logInTests = new LogInTests();
         logInTests.onboardingPage = new OnboardingPage(driver);

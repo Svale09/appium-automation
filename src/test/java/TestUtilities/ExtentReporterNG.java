@@ -6,8 +6,8 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 public class ExtentReporterNG {
     static ExtentReports extent;
 
-    public static ExtentReports getReporter(){
-        ExtentSparkReporter reporter = new ExtentSparkReporter("/Users/ivansvalina/IdeaProjects/ZavrsniRad/Reports");
+    public static ExtentReports getReporter() {
+        ExtentSparkReporter reporter = new ExtentSparkReporter("//Users//ivansvalina//IdeaProjects//ZavrsniRad//Reports//index.html");
         reporter.config().setReportName("Test Report");
         reporter.config().setDocumentTitle("Results");
 

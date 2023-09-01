@@ -29,29 +29,32 @@ public class GroupDetailsPage extends AndroidActions {
     private List<WebElement> postTimeStamps;
     @AndroidFindBy(xpath = "//*[@resource-id='the.phoenix.android.qa:id/post_view']")
     private List<WebElement> posts;
-    @AndroidFindBy(xpath = "//*[@resource-id='the.phoenix.android.qa:id/main_scroll_view']")
-    private List<WebElement> mainContainers;
+    @AndroidFindBy(id = "the.phoenix.android.qa:id/motion_layout")
+    private WebElement mainContainer;
 
-    public int GetMemberCount(){
+    public int GetMemberCount() {
         String members = GetText(memberCounter);
         String[] memberCounter = members.split(" ");
         return Integer.parseInt(memberCounter[0]);
     }
 
-    public void JoinGroup(){
+    public void JoinGroup() {
         joinGroupButton.click();
     }
 
-    public CreatePostPage TapPostInputField(){
+    public CreatePostPage TapPostInputField() {
+        waitForElementToAppearByElement(postInputField, driver);
         postInputField.click();
         return new CreatePostPage(driver);
     }
 
-    public String GetLatestPostTimestamp(){
+    public String GetLatestPostTimestamp() {
+        waitForElementToAppearByElement(postTimeStamps.get(0), driver);
         return postTimeStamps.get(0).getText();
     }
 
-    public void ScrollToPosts(int amount){
-        Swipe(amount, mainContainers.get(0), "up");
+    public void ScrollToPosts(int amount) {
+        waitForElementToAppearByElement(mainContainer, driver);
+        Swipe(mainContainer, "up");
     }
 }

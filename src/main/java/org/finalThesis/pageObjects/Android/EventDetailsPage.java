@@ -23,6 +23,7 @@ public class EventDetailsPage extends AndroidActions {
     private WebElement attendesCounter;
 
     public void TapReserveSpot(){
+        waitForElementToAppearByElement(reserveSpotButton,driver);
         reserveSpotButton.click();
     }
 

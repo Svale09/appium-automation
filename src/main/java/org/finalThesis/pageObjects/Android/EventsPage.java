@@ -12,7 +12,7 @@ import java.util.List;
 public class EventsPage extends AndroidActions {
     AndroidDriver driver;
 
-    public EventsPage(AndroidDriver driver){
+    public EventsPage(AndroidDriver driver) {
         super(driver);
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -29,20 +29,24 @@ public class EventsPage extends AndroidActions {
     @AndroidFindBy(accessibility = "Groups")
     private WebElement groupsIcon;
 
-    public boolean isTitleDisplayed(){
+    public boolean isTitleDisplayed() {
         return eventsTitle.isDisplayed();
     }
-    public ProfilePage tapProfilePicture(){
+
+    public ProfilePage tapProfilePicture() {
+        waitForElementToAppearByElement(profilePicture, driver);
         profilePicture.click();
         return new ProfilePage(driver);
     }
 
-    public EventDetailsPage tapEventCard(){
+    public EventDetailsPage tapEventCard() {
+        waitForElementToAppearByElement(eventCards.get(0), driver);
         eventCards.get(0).click();
         return new EventDetailsPage(driver);
     }
 
-    public GroupsPage NavigateToGroupsSection(){
+    public GroupsPage NavigateToGroupsSection() {
+        waitForElementToAppearByElement(groupsIcon, driver);
         groupsIcon.click();
         return new GroupsPage(driver);
     }

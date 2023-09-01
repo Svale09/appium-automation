@@ -41,7 +41,7 @@ public class iOSBaseTest extends AppiumUtilities {
     }
 
     @AfterClass(alwaysRun = true)
-    public void tearDown(){
+    public void tearDown() {
         driver.quit();
         service.stop();
     }

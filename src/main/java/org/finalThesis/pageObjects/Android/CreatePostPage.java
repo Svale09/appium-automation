@@ -25,6 +25,7 @@ public class CreatePostPage extends AndroidActions {
         postTextInputField.sendKeys(text);
     }
     public GroupDetailsPage PublishPost(){
+        waitForElementToAppearByElement(createPostButton,driver);
         createPostButton.click();
         return new GroupDetailsPage(driver);
     }

@@ -7,27 +7,25 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
 
-public class AndroidActions extends AppiumUtilities{
+public class AndroidActions extends AppiumUtilities {
     AndroidDriver driver;
 
-    public AndroidActions(AndroidDriver driver){
+    public AndroidActions(AndroidDriver driver) {
         this.driver = driver;
     }
 
-    public void scrollToElement(String value){
+    public void scrollToElement(String value) {
         driver.findElement(
                 AppiumBy.androidUIAutomator((
                         "new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + value + "\"));")
                 )); //Ui automator method of scrolling
     }
 
-    public void Swipe(int amount, WebElement element, String direction) {
-        //for (int i = 0; i < amount; i++) {
-            ((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of(
-                    "elementId", ((RemoteWebElement) element).getId(),
-                    "direction", direction,
-                    "percent", 0.75
-            ));
-        }
-    //}
+    public void Swipe(WebElement element, String direction) {
+        ((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of(
+                "elementId", ((RemoteWebElement) element).getId(),
+                "direction", direction,
+                "percent", 0.75
+        ));
+    }
 }

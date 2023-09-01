@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class ReserveEventSpotTest extends AndroidBaseTest {
-    @Test
+    @Test(groups = {"AndroidReg"})
     public void ReserveSpotForRegularEvent(){
         EventsPage eventsPage = new EventsPage(driver);
         EventDetailsPage eventDetailsPage = eventsPage.tapEventCard();
@@ -22,7 +22,7 @@ public class ReserveEventSpotTest extends AndroidBaseTest {
 
         Assert.assertEquals(initialAttendees + 1, currentAttendees);
     }
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void LogIn(){
         LogInTests logInTests = new LogInTests();
         logInTests.onboardingPage = new OnboardingPage(driver);
