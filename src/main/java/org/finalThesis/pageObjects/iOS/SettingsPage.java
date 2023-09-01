@@ -1,7 +1,5 @@
 package org.finalThesis.pageObjects.iOS;
 
-import Utilities.AppiumUtilities;
-import Utilities.iOSActions;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
@@ -25,7 +23,8 @@ public class SettingsPage extends iOSBasePage {
         return new HomePage(driver);
     }
 
-    public void scrollToLogInButton() {
+    public HomePage scrollToLogOutButton() {
         ScrollToElement(logOutButton);
+        return new HomePage(driver);
     }
 }

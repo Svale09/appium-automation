@@ -1,7 +1,6 @@
 package org.finalThesis.tests.iOS;
 
 import TestUtilities.iOSBaseTest;
-import io.appium.java_client.AppiumBy;
 import org.finalThesis.pageObjects.iOS.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -26,9 +25,8 @@ public class LogInTests extends iOSBaseTest {
         ProfilePage profilePage = eventsPage.tapProfilePicture();
 
         SettingsPage settingsPage = profilePage.tapSettingsButton();
-        settingsPage.scrollToLogInButton();
 
-        HomePage homePage = settingsPage.tapLogOutButton();
+        HomePage homePage = settingsPage.scrollToLogOutButton();
 
         Assert.assertTrue(homePage.isTitleDisplayed());
     }
