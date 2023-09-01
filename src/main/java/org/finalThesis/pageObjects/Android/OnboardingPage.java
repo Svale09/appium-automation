@@ -7,7 +7,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class OnboardingPage extends AndroidActions {
+public class OnboardingPage extends AndroidBasePage {
     AndroidDriver driver;
     public OnboardingPage(AndroidDriver driver){
         super(driver);
@@ -19,7 +19,7 @@ public class OnboardingPage extends AndroidActions {
     private WebElement continueButton;
 
     public HomePage tapContinueButton(){
-        continueButton.click();
+        Tap(continueButton);
         return new HomePage(driver);
     }
 }

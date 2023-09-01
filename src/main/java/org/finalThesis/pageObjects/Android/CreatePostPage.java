@@ -7,7 +7,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class CreatePostPage extends AndroidActions {
+public class CreatePostPage extends AndroidBasePage {
     AndroidDriver driver;
 
     public CreatePostPage(AndroidDriver driver){
@@ -22,11 +22,10 @@ public class CreatePostPage extends AndroidActions {
     private WebElement createPostButton;
 
     public void InputPostText(String text){
-        postTextInputField.sendKeys(text);
+        InputText(postTextInputField, text);
     }
     public GroupDetailsPage PublishPost(){
-        waitForElementToAppearByElement(createPostButton,driver);
-        createPostButton.click();
+        Tap(createPostButton);
         return new GroupDetailsPage(driver);
     }
 }

@@ -8,7 +8,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class LogInPage extends AndroidActions {
+public class LogInPage extends AndroidBasePage {
     AndroidDriver driver;
     public LogInPage(AndroidDriver driver){
         super(driver);
@@ -24,12 +24,12 @@ public class LogInPage extends AndroidActions {
     private WebElement continueButton;
 
     public void enterCredentials(String email, String password){
-        emailInputField.sendKeys(email);
-        passwordInputField.sendKeys(password);
+        InputText(emailInputField, email);
+        InputText(passwordInputField, password);
     }
 
     public EventsPage tapContinueButton(){
-        continueButton.click();
+        Tap(continueButton);
         return new EventsPage(driver);
     }
 }

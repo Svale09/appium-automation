@@ -20,7 +20,7 @@ public class CreatePostTest extends AndroidBaseTest {
 
         groupDetailsPage = createPostPage.PublishPost();
 
-        groupDetailsPage.ScrollToPosts(5);
+        groupDetailsPage.ScrollToPosts();
 
         Assert.assertEquals(groupDetailsPage.GetLatestPostTimestamp(), "moments ago");
     }

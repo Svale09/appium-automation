@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class GroupsPage extends AndroidActions {
+public class GroupsPage extends AndroidBasePage {
     AndroidDriver driver;
 
     public GroupsPage(AndroidDriver driver){

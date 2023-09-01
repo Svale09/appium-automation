@@ -1,16 +1,14 @@
 package org.finalThesis.pageObjects.Android;
 
-import Utilities.AndroidActions;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-import java.util.Arrays;
 import java.util.List;
 
-public class GroupDetailsPage extends AndroidActions {
+public class GroupDetailsPage extends AndroidBasePage {
     AndroidDriver driver;
 
     public GroupDetailsPage(AndroidDriver driver) {
@@ -29,7 +27,7 @@ public class GroupDetailsPage extends AndroidActions {
     private List<WebElement> postTimeStamps;
     @AndroidFindBy(xpath = "//*[@resource-id='the.phoenix.android.qa:id/post_view']")
     private List<WebElement> posts;
-    @AndroidFindBy(id = "the.phoenix.android.qa:id/motion_layout")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.widget.ScrollView")
     private WebElement mainContainer;
 
     public int GetMemberCount() {
@@ -39,12 +37,11 @@ public class GroupDetailsPage extends AndroidActions {
     }
 
     public void JoinGroup() {
-        joinGroupButton.click();
+        Tap(joinGroupButton);
     }
 
     public CreatePostPage TapPostInputField() {
-        waitForElementToAppearByElement(postInputField, driver);
-        postInputField.click();
+        Tap(postInputField);
         return new CreatePostPage(driver);
     }
 
@@ -53,8 +50,11 @@ public class GroupDetailsPage extends AndroidActions {
         return postTimeStamps.get(0).getText();
     }
 
-    public void ScrollToPosts(int amount) {
+    public void ScrollToPosts() {
         waitForElementToAppearByElement(mainContainer, driver);
-        Swipe(mainContainer, "up");
+        int startY = driver.manage().window().getSize().height;
+        ScrollDown((int) (startY * 0.55));
+        ScrollDown((int) (startY * 0.55));
+        ScrollDown((int) (startY * 0.90));
     }
 }

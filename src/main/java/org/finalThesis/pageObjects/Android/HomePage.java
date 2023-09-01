@@ -8,7 +8,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage extends AndroidActions {
+public class HomePage extends AndroidBasePage {
     AndroidDriver driver;
 
     public HomePage(AndroidDriver driver){
@@ -25,7 +25,7 @@ public class HomePage extends AndroidActions {
     private WebElement title;
 
     public LogInPage tapLogInButton(){
-        logInButton.click();
+        Tap(logInButton);
         return new LogInPage(driver);
     }
 

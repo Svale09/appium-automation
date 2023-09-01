@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class EventsPage extends AndroidActions {
+public class EventsPage extends AndroidBasePage {
     AndroidDriver driver;
 
     public EventsPage(AndroidDriver driver) {
@@ -22,6 +22,8 @@ public class EventsPage extends AndroidActions {
     private WebElement eventsTitle;
     @AndroidFindBy(id = "the.phoenix.android.qa:id/profile_avatar")
     private WebElement profilePicture;
+    @AndroidFindBy(id = "the.phoenix.android.qa:id/in_person_events_list")
+    private WebElement inPersonEventCarousel;
     @AndroidFindBy(xpath = "//*[@resource-id='the.phoenix.android.qa:id/in_person_events_list']//*[@class='androidx.cardview.widget.CardView']")
     private List<WebElement> eventCards;
     @AndroidFindBy(id = "the.phoenix.android.qa:id/in_person_header")
@@ -34,20 +36,18 @@ public class EventsPage extends AndroidActions {
     }
 
     public ProfilePage tapProfilePicture() {
-        waitForElementToAppearByElement(profilePicture, driver);
-        profilePicture.click();
+        Tap(profilePicture);
         return new ProfilePage(driver);
     }
 
     public EventDetailsPage tapEventCard() {
-        waitForElementToAppearByElement(eventCards.get(0), driver);
-        eventCards.get(0).click();
+        waitForElementToAppearByElement(inPersonEventCarousel, driver);
+        Tap(eventCards.get(0));
         return new EventDetailsPage(driver);
     }
 
     public GroupsPage NavigateToGroupsSection() {
-        waitForElementToAppearByElement(groupsIcon, driver);
-        groupsIcon.click();
+        Tap(groupsIcon);
         return new GroupsPage(driver);
     }
 }

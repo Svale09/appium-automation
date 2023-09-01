@@ -8,7 +8,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class EventDetailsPage extends AndroidActions {
+public class EventDetailsPage extends AndroidBasePage {
     AndroidDriver driver;
 
     public EventDetailsPage(AndroidDriver driver){
@@ -23,8 +23,7 @@ public class EventDetailsPage extends AndroidActions {
     private WebElement attendesCounter;
 
     public void TapReserveSpot(){
-        waitForElementToAppearByElement(reserveSpotButton,driver);
-        reserveSpotButton.click();
+        Tap(reserveSpotButton);
     }
 
     public int GetNumberOfAttendees(){

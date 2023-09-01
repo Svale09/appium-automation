@@ -27,11 +27,11 @@ public class GroupDetailsPage extends iOSActions {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`label == \"Right now\"`]")
     private WebElement latestPostTimestamp;
 
-    public int GetMemberCount() {
+    /*public int GetMemberCount() {
         String members = GetText(memberCounter);
         String[] memberCounter = members.split(" ");
         return Integer.parseInt(memberCounter[0]);
-    }
+    }*/
 
     public void JoinGroup() {
         joinGroupButton.click();

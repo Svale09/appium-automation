@@ -7,7 +7,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class SettingsPage extends AndroidActions {
+public class SettingsPage extends AndroidBasePage {
     AndroidDriver driver;
 
     public SettingsPage(AndroidDriver driver) {
@@ -20,7 +20,7 @@ public class SettingsPage extends AndroidActions {
     public WebElement logOutButton;
 
     public HomePage tapLogOutButton(){
-        logOutButton.click();
+        Tap(logOutButton);
         return new HomePage(driver);
     }
 

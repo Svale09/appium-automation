@@ -8,7 +8,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class ProfilePage extends AndroidActions {
+public class ProfilePage extends AndroidBasePage {
     AndroidDriver driver;
 
     public ProfilePage(AndroidDriver driver){
@@ -21,7 +21,7 @@ public class ProfilePage extends AndroidActions {
     private WebElement settingsButton;
 
     public SettingsPage tapSettingsButton(){
-        settingsButton.click();
+        Tap(settingsButton);
         return new SettingsPage(driver);
     }
 }

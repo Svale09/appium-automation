@@ -37,9 +37,6 @@ public class AppiumUtilities {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOf(element));
     }
-    public String GetText(WebElement element){
-        return element.getText();
-    }
 
     public String getScreenshotPath(String testCaseName, AppiumDriver driver) throws IOException {
         File source = driver.getScreenshotAs(OutputType.FILE);
