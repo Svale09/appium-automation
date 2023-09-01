@@ -31,7 +31,7 @@ public class GroupDetailsPage extends iOSBasePage {
         Tap(joinGroupButton);
     }
 
-    public boolean IsInputFieldVisible(){
+    public boolean IsInputFieldVisible() {
         return postInputField.isDisplayed();
     }
 
@@ -40,7 +40,8 @@ public class GroupDetailsPage extends iOSBasePage {
         return new CreatePostPage(driver);
     }
 
-    public boolean isPostVisible(){
+    public boolean isPostVisible() {
+        waitForElementToAppearByElement(latestPostTimestamp, driver);
         return latestPostTimestamp.isDisplayed();
     }
 }
