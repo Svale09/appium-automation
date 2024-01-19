@@ -5,6 +5,8 @@ import org.finalThesis.pageObjects.Android.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.Map;
+
 public class LogInTests extends AndroidBaseTest {
     @Test(priority = 1, groups = {"AndroidReg"})
     public void LogIn(){
@@ -12,7 +14,8 @@ public class LogInTests extends AndroidBaseTest {
 
         LogInPage logInPage = homePage.tapLogInButton();
 
-        logInPage.enterCredentials("svaleqa+squirt@gmail.com", "Ministar123");
+        Map<String, String> credentials = RetrieveCredentials();
+        logInPage.enterCredentials(credentials.get("email"), credentials.get("password"));
         EventsPage eventsPage = logInPage.tapContinueButton();
 
         Assert.assertTrue(eventsPage.isTitleDisplayed());
