@@ -33,7 +33,7 @@ public class AndroidBaseTest extends AppiumUtilities {
         options.setDeviceName(properties.getProperty("deviceName"))
                 .setPlatformVersion(properties.getProperty("platformVersion"))
                 .setAutomationName("UIAutomator2")
-                .setApp("/Users/ivansvalina/IdeaProjects/ZavrsniRad/src/test/java/Resources/Phoenix_Android.apk")
+                .setApp("/Users/ivansvalina/Documents/Faks/Završni/thePhoenix_6.0.0")
                 .autoGrantPermissions();
 
         driver = new AndroidDriver(service.getUrl(), options);
