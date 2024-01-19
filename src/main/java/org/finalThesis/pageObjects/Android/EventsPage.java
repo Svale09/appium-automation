@@ -26,8 +26,6 @@ public class EventsPage extends AndroidBasePage {
     private WebElement inPersonEventCarousel;
     @AndroidFindBy(xpath = "//*[@resource-id='the.phoenix.android.qa:id/in_person_events_list']//*[@class='androidx.cardview.widget.CardView']")
     private List<WebElement> eventCards;
-    @AndroidFindBy(id = "the.phoenix.android.qa:id/in_person_header")
-    private WebElement inPersonTitle;
     @AndroidFindBy(accessibility = "Groups")
     private WebElement groupsIcon;
 

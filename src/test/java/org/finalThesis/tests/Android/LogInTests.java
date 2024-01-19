@@ -12,7 +12,7 @@ public class LogInTests extends AndroidBaseTest {
 
         LogInPage logInPage = homePage.tapLogInButton();
 
-        logInPage.enterCredentials("svaleqa+zr@gmail.com", "Test123!");
+        logInPage.enterCredentials("svaleqa+squirt@gmail.com", "Ministar123");
         EventsPage eventsPage = logInPage.tapContinueButton();
 
         Assert.assertTrue(eventsPage.isTitleDisplayed());

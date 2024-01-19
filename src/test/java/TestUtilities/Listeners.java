@@ -45,6 +45,11 @@ public class Listeners extends AppiumUtilities implements ITestListener {
     }
 
     @Override
+    public void onFinish(ITestContext context) {
+        extent.flush();
+    }
+
+    @Override
     public void onTestSkipped(ITestResult result) {
         ITestListener.super.onTestSkipped(result);
     }
@@ -64,8 +69,4 @@ public class Listeners extends AppiumUtilities implements ITestListener {
         ITestListener.super.onStart(context);
     }
 
-    @Override
-    public void onFinish(ITestContext context) {
-        extent.flush();
-    }
 }

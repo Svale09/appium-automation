@@ -9,6 +9,8 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.io.FileNotFoundException;
+
 public class JoinGroupTest extends iOSBaseTest {
     @Test(groups = {"iOSReg"})
     public void JoinGroup() {
@@ -23,7 +25,7 @@ public class JoinGroupTest extends iOSBaseTest {
     }
 
     @BeforeMethod(alwaysRun = true)
-    public void LogIn() {
+    public void LogIn() throws FileNotFoundException {
         LogInTests logInTests = new LogInTests();
         logInTests.onboardingPage = new OnboardingPage(driver);
         logInTests.LogInWithEmail();
