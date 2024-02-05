@@ -30,6 +30,7 @@ public class EventsPage extends AndroidBasePage {
     private WebElement groupsIcon;
 
     public boolean isTitleDisplayed() {
+        waitForElementToAppearByElement(eventsTitle, driver);
         return eventsTitle.isDisplayed();
     }
 
