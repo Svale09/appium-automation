@@ -16,9 +16,9 @@ public class LogInTests extends AndroidBaseTest {
 
         Map<String, String> credentials = RetrieveCredentials();
         logInPage.enterCredentials(credentials.get("email"), credentials.get("password"));
-        EventsPage eventsPage = logInPage.tapContinueButton();
+        HomefeedPage homefeedPage = logInPage.tapContinueButton();
 
-        Assert.assertTrue(eventsPage.isTitleDisplayed());
+        Assert.assertTrue(homefeedPage.isTitleDisplayed());
     }
 
     @Test(priority = 2, groups = {"AndroidReg"})

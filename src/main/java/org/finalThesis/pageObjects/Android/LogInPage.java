@@ -28,8 +28,8 @@ public class LogInPage extends AndroidBasePage {
         InputText(passwordInputField, password);
     }
 
-    public EventsPage tapContinueButton(){
+    public HomefeedPage tapContinueButton(){
         Tap(continueButton);
-        return new EventsPage(driver);
+        return new HomefeedPage(driver);
     }
 }
