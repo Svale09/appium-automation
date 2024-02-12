@@ -31,6 +31,7 @@ public class GroupDetailsPage extends AndroidBasePage {
     private WebElement mainContainer;
 
     public int GetMemberCount() {
+        waitForElementToAppearByElement(memberCounter, driver);
         String members = GetText(memberCounter);
         String[] memberCounter = members.split(" ");
         return Integer.parseInt(memberCounter[0]);
@@ -50,11 +51,12 @@ public class GroupDetailsPage extends AndroidBasePage {
         return postTimeStamps.get(0).getText();
     }
 
+    //TODO Need to improve and fix the scrolling method used to scroll to the first post
     public void ScrollToPosts() {
         waitForElementToAppearByElement(mainContainer, driver);
         int startY = driver.manage().window().getSize().height;
         ScrollDown((int) (startY * 0.55));
-        ScrollDown((int) (startY * 0.55));
+        ScrollDown((int) (startY * 0.80));
         ScrollDown((int) (startY * 0.90));
     }
 }
