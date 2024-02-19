@@ -1,7 +1,9 @@
 package org.finalThesis.pageObjects.Android;
 
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 public class HomefeedPage extends AndroidBasePage{
@@ -14,10 +16,20 @@ public class HomefeedPage extends AndroidBasePage{
     }
 
     //TODO locate elements
+    @AndroidFindBy(xpath = "//*[contains(@text, 'Hello')]")
+    private WebElement homefeedTitle;
 
+    @AndroidFindBy(xpath = "(//android.widget.ImageView[@content-desc=\"User Avatar\"])[1]")
+    private WebElement profilePicture;
 
     //TODO implement isTitleDisplayed method used in LogIn tests
-    public boolean isTitleDisplayed(){
-        return true;
+    public boolean isTitleDisplayed() {
+        waitForElementToAppearByElement(homefeedTitle, driver);
+        return homefeedTitle.isDisplayed();
+    }
+
+    public ProfilePage tapProfilePicture(){
+        Tap(profilePicture);
+        return new ProfilePage(driver);
     }
 }

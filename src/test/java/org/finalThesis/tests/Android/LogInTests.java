@@ -23,8 +23,8 @@ public class LogInTests extends AndroidBaseTest {
 
     @Test(priority = 2, groups = {"AndroidReg"})
     public void LogOut(){
-        EventsPage eventsPage = new EventsPage(driver);
-        ProfilePage profilePage = eventsPage.tapProfilePicture();
+        HomefeedPage homefeedPage = new HomefeedPage(driver);
+        ProfilePage profilePage = homefeedPage.tapProfilePicture();
 
         SettingsPage settingsPage = profilePage.tapSettingsButton();
 
