@@ -1,10 +1,7 @@
 package org.finalThesis.tests.Android;
 
 import TestUtilities.AndroidBaseTest;
-import org.finalThesis.pageObjects.Android.EventsPage;
-import org.finalThesis.pageObjects.Android.GroupDetailsPage;
-import org.finalThesis.pageObjects.Android.GroupsPage;
-import org.finalThesis.pageObjects.Android.OnboardingPage;
+import org.finalThesis.pageObjects.Android.*;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -12,11 +9,13 @@ import org.testng.annotations.Test;
 public class JoinGroupTest extends AndroidBaseTest {
     @Test(groups = {"AndroidReg"})
     public void JoinGroup(){
-        EventsPage eventsPage = new EventsPage(driver);
+        HomefeedPage homefeedPage = new HomefeedPage(driver);
+        GroupsPage groupsPage = homefeedPage.navigateToGroupsSection();
 
-        GroupsPage groupsPage = eventsPage.NavigateToGroupsSection();
+        FeaturedGroupsPage featuredGroupsPage = groupsPage.OpenFeaturedGroupList();
+        //TODO investigate why is the locator for featuredGroups returning empty list
+        GroupDetailsPage groupDetailsPage = featuredGroupsPage.OpenFeaturedGroupDetails();
 
-        GroupDetailsPage groupDetailsPage = groupsPage.OpenGroupDetails();
         int initialMemberCount = groupDetailsPage.GetMemberCount();
         groupDetailsPage.JoinGroup();
         int currentMemberCount = groupDetailsPage.GetMemberCount();

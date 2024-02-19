@@ -1,6 +1,5 @@
 package org.finalThesis.pageObjects.Android;
 
-import Utilities.AndroidActions;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -27,7 +26,7 @@ public class EventsPage extends AndroidBasePage {
     @AndroidFindBy(xpath = "//*[@resource-id='the.phoenix.android.qa:id/in_person_events_list']//*[@class='androidx.cardview.widget.CardView']")
     private List<WebElement> eventCards;
     @AndroidFindBy(accessibility = "Groups")
-    private WebElement groupsIcon;
+    private WebElement groupsNavigationIcon;
 
     public boolean isTitleDisplayed() {
         waitForElementToAppearByElement(eventsTitle, driver);
@@ -46,7 +45,7 @@ public class EventsPage extends AndroidBasePage {
     }
 
     public GroupsPage NavigateToGroupsSection() {
-        Tap(groupsIcon);
+        Tap(groupsNavigationIcon);
         return new GroupsPage(driver);
     }
 }

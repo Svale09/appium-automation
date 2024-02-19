@@ -22,6 +22,12 @@ public class HomefeedPage extends AndroidBasePage{
     @AndroidFindBy(xpath = "(//android.widget.ImageView[@content-desc=\"User Avatar\"])[1]")
     private WebElement profilePicture;
 
+    @AndroidFindBy(id = "the.phoenix.android.qa:id/events")
+    private WebElement eventsNavigationIcon;
+
+    @AndroidFindBy(accessibility = "Spaces")
+    private WebElement groupsNavigationIcon;
+
     //TODO implement isTitleDisplayed method used in LogIn tests
     public boolean isTitleDisplayed() {
         waitForElementToAppearByElement(homefeedTitle, driver);
@@ -31,5 +37,15 @@ public class HomefeedPage extends AndroidBasePage{
     public ProfilePage tapProfilePicture(){
         Tap(profilePicture);
         return new ProfilePage(driver);
+    }
+
+    public EventsPage navigateToEventsSection(){
+        Tap(eventsNavigationIcon);
+        return new EventsPage(driver);
+    }
+
+    public GroupsPage navigateToGroupsSection(){
+        Tap(groupsNavigationIcon);
+        return new GroupsPage(driver);
     }
 }
