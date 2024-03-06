@@ -1,5 +1,6 @@
 package TestUtilities;
 
+import Resources.Devices;
 import Utilities.AppiumUtilities;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
@@ -29,9 +30,13 @@ public class AndroidBaseTest extends AppiumUtilities {
                 Integer.parseInt(properties.getProperty("port"))
         );
 
+        Devices device = Devices.Pixel6Pro;
+
+        //TODO replace the current method of fetching device data with the new enums
+
         UiAutomator2Options options = new UiAutomator2Options();
-        options.setDeviceName(properties.getProperty("deviceName"))
-                .setPlatformVersion(properties.getProperty("platformVersion"))
+        options.setDeviceName(device.getId())
+                .setPlatformVersion(device.getPlatformVersion())
                 .setAutomationName("UIAutomator2")
                 .setApp("/Users/ivansvalina/Documents/Faks/Završni/App Versions/phx_6.0.0_qa.apk")
                 .autoGrantPermissions();
