@@ -30,9 +30,7 @@ public class AndroidBaseTest extends AppiumUtilities {
                 Integer.parseInt(properties.getProperty("port"))
         );
 
-        Devices device = Devices.Pixel6Pro;
-
-        //TODO replace the current method of fetching device data with the new enums
+        Devices device = Devices.Pixel6Pro; // change the device by simply entering another one from the enum list
 
         UiAutomator2Options options = new UiAutomator2Options();
         options.setDeviceName(device.getId())
